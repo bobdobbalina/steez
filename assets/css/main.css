@@ -1,0 +1,1275 @@
+@charset "UTF-8";
+
+:root {
+    --light-percentage: 70%;
+    /* COLORS */
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-yellow: #ffca30;
+    --color-red: #e02045;
+    --color-green: #4d967b;
+    --color-neutral-0: var(--color-white);
+    --color-neutral-1: color-mix(in srgb, var(--color-black) 10%, var(--color-white));
+    --color-neutral-2: color-mix(in srgb, var(--color-black) 20%, var(--color-white));
+    --color-neutral-3: color-mix(in srgb, var(--color-black) 30%, var(--color-white));
+    --color-neutral-4: color-mix(in srgb, var(--color-black) 40%, var(--color-white));
+    --color-neutral-5: color-mix(in srgb, var(--color-black) 50%, var(--color-white));
+    --color-neutral-6: color-mix(in srgb, var(--color-black) 60%, var(--color-white));
+    --color-neutral-7: color-mix(in srgb, var(--color-black) 70%, var(--color-white));
+    --color-neutral-8: color-mix(in srgb, var(--color-black) 80%, var(--color-white));
+    --color-neutral-9: color-mix(in srgb, var(--color-black) 90%, var(--color-white));
+    --color-neutral-10: var(--color-black);
+    --color-primary: #5FC1F1;
+    --color-secondary: #F15FF1;
+    --color-action: var(--color-primary);
+    --color-action-light: color-mix(in srgb, var(--color-action) var(--light-percentage), var(--color-white));
+    --color-action-contrast: var(--color-white);
+    --color-highlight: var(--color-action);
+    --color-highlight-light: color-mix(in srgb, var(--color-highlight) var(--light-percentage), var(--color-white));
+    --color-highlight-contrast: var(--color-white);
+    --color-success: var(--color-green);
+    --color-success-light: color-mix(in srgb, var(--color-success) var(--light-percentage), var(--color-white));
+    --color-success-contrast: var(--color-action-contrast);
+    --color-warning: var(--color-yellow);
+    --color-warning-light: color-mix(in srgb, var(--color-warning) var(--light-percentage), var(--color-white));
+    --color-warning-contrast: var(--color-action-contrast);
+    --color-error: var(--color-red);
+    --color-error-light: color-mix(in srgb, var(--color-error) var(--light-percentage), var(--color-white));
+    --color-error-contrast: var(--color-action-contrast);
+    --color-viewport-background: var(--color-white);
+    --color-text-primary: var(--color-neutral-9);
+    --color-text-secondary: var(--color-neutral-6);
+    --color-text-tertiary: var(--color-secondarary);
+    --color-text-body: var(--color-text-primary);
+    /* TYPOGRAPHY */
+    --font-primary-stack: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;
+    --font-secondary-stack: Arial, Helvetica Neue, Helvetica, sans-serif;
+    --font-tertiary-stack: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+    --font-family: var(--font-secondary-stack);
+    --font-family-heading: var(--font-family);
+    --font-weight-thin: 100;
+    --font-weight-extra-light: 200;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semi-bold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extra-bold: 800;
+    --font-weight-black: 900;
+    --font-size-base: 1em;
+    --font-size-display: 4.8em;
+    --font-size-h1: 3.6em;
+    --font-size-h2: 2.4em;
+    --font-size-h3: 1.6em;
+    --font-size-h4: 1.2em;
+    --font-size-h5: 1em;
+    --font-size-h6: 0.8em;
+    --font-size-body: var(--font-size-base);
+    --font-size-body-sm: calc(var(--font-size-base) * 0.75);
+    --font-size-body-lg: calc(var(--font-size-base) * 1.25);
+    --line-height-reset: 1;
+    --line-height-text: 1.5;
+    --line-height-heading: 1.25;
+    /* SPACING */
+    --spacing-base: 2rem;
+    --spacing-xs: calc(var(--spacing-base) * 0.25);
+    --spacing-sm: calc(var(--spacing-base) * 0.5);
+    --spacing-md: var(--spacing-base);
+    --spacing-lg: calc(var(--spacing-base) * 1.5);
+    --spacing-xl: calc(var(--spacing-base) * 2);
+    /* ANIMATION */
+    --linear: cubic-bezier(0.250, 0.250, 0.750, 0.750);
+    --ease: cubic-bezier(0.250, 0.100, 0.250, 1.000);
+    --ease-in: cubic-bezier(0.420, 0.000, 1.000, 1.000);
+    --ease-out: cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    --ease-in-out: cubic-bezier(0.420, 0.000, 0.580, 1.000);
+    --ease-in-quad: cubic-bezier(0.550, 0.085, 0.680, 0.530);
+    --ease-in-cubic: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    --ease-in-quart: cubic-bezier(0.895, 0.030, 0.685, 0.220);
+    --ease-in-quint: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    --ease-in-sine: cubic-bezier(0.470, 0.000, 0.745, 0.715);
+    --ease-in-expo: cubic-bezier(0.950, 0.050, 0.795, 0.035);
+    --ease-in-circ: cubic-bezier(0.600, 0.040, 0.980, 0.335);
+    --ease-in-back: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+    --ease-out-quad: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    --ease-out-cubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    --ease-out-quart: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    --ease-out-quint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    --ease-out-sine: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    --ease-out-expo: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+    --ease-out-circ: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+    --ease-out-back: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    --ease-in-out-quad: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+    --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    --ease-in-out-quart: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    --ease-in-out-quint: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+    --ease-in-out-sine: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    --ease-in-out-expo: cubic-bezier(1.000, 0.000, 0.000, 1.000);
+    --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.150, 0.860);
+    --ease-in-out-back: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    --animation-duration: 0.5s;
+    --animation-duration-slow: var(--animation-duration) * 2;
+    --animation-duration-fast: var(--animation-duration) / 2;
+    --animation-timing: var(--ease-out-cubic);
+    /* BORDERS & RADIUS */
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: var(--color-neutral-5, currentColor);
+    --border: var(--border-width) var(--border-style) var(--border-color);
+    --border-radius: 0.5rem;
+    /* FOCUS */
+    --focus-outline-width: 1px;
+    --focus-outline-offset: 2px;
+    --focus-outline: var(--focus-outline-width) solid var(--color-action);
+    /* SHADOWS */
+    --elevation-1: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    --elevation-2: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+    --elevation-3: 0px 3px 9px 3px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.3);
+    --elevation-4: 0px 2px 14px 4px rgba(0, 0, 0, 0.15), 0px 2px 5px rgba(0, 0, 0, 0.3);
+    --elevation-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3);
+    /* SCROLLBARS */
+    --scrollbar-width: 5px;
+}
+
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    /* 1 */
+    border-width: 0;
+    /* 2 */
+    border-style: solid;
+    /* 2 */
+    border-color: var(--border-color);
+    /* 2 */
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
+*/
+html {
+    line-height: 1.5;
+    /* 1 */
+    -webkit-text-size-adjust: 100%;
+    /* 2 */
+    -moz-tab-size: 4;
+    /* 3 */
+    -o-tab-size: 4;
+    tab-size: 4;
+    /* 3 */
+    font-family: var(--font-family);
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+body {
+    margin: 0;
+    /* 1 */
+    line-height: inherit;
+    /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+hr {
+    height: 0;
+    /* 1 */
+    color: inherit;
+    /* 2 */
+    border-top-width: 1px;
+    /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-heading);
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+b,
+strong {
+    font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+code,
+kbd,
+samp,
+pre {
+    font-family: var(--font-tertiary-stack);
+    /* 1 */
+    font-size: 1em;
+    /* 2 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+small {
+    font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+table {
+    text-indent: 0;
+    /* 1 */
+    border-color: inherit;
+    /* 2 */
+    border-collapse: collapse;
+    /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    /* 1 */
+    font-feature-settings: inherit;
+    /* 1 */
+    font-variation-settings: inherit;
+    /* 1 */
+    font-size: 100%;
+    /* 1 */
+    font-weight: inherit;
+    /* 1 */
+    line-height: inherit;
+    /* 1 */
+    color: inherit;
+    /* 1 */
+    margin: 0;
+    /* 2 */
+    padding: 0;
+    /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+button,
+select {
+    text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+    -webkit-appearance: button;
+    /* 1 */
+    background-color: transparent;
+    /* 2 */
+    background-image: none;
+    /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+:-moz-focusring {
+    outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+:-moz-ui-invalid {
+    box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+progress {
+    vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+    height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+[type=search] {
+    -webkit-appearance: textfield;
+    /* 1 */
+    outline-offset: -2px;
+    /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    /* 1 */
+    font: inherit;
+    /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+summary {
+    display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+    margin: 0;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    padding: 0;
+}
+
+/*
+Reset default styling for dialogs.
+*/
+dialog {
+    padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+textarea {
+    resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+input::-moz-placeholder, textarea::-moz-placeholder {
+    opacity: 1;
+    /* 1 */
+    color: var(--color-neutral-3);
+    /* 2 */
+}
+
+input::placeholder,
+textarea::placeholder {
+    opacity: 1;
+    /* 1 */
+    color: var(--color-neutral-3);
+    /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+button,
+[role=button] {
+    cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+:disabled {
+    cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+    display: block;
+    /* 1 */
+    vertical-align: middle;
+    /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+[hidden] {
+    display: none;
+}
+
+/*! normalize-opentype.css v0.2.4 | MIT License | kennethormandy.com/journal/normalize-opentype-css */
+/**
+ * 1. Inherit style issues with custom selections, per robsterlini.co.uk/journal/opentype-and-selection-dont-mix
+ * 2. Turn on kerning, standard ligatures, and proportional, oldstyle numerals
+ *    Turn off all other ligatures, tabular, lining numerals, and alternates
+      Uses same settings for tables
+ * 3. Hard-codes fallback text selection for issue #18, color is Chrome’s per via http://stackoverflow.com/a/16094931/864799
+ */
+::-moz-selection {
+    color: inherit;
+    /* 1. */
+    text-shadow: inherit;
+    /* 2. */
+    background-color: #ACCEF7;
+    /* 3. */
+}
+
+::selection {
+    color: inherit;
+    /* 1. */
+    text-shadow: inherit;
+    /* 2. */
+    background-color: #ACCEF7;
+    /* 3. */
+}
+
+html,
+body,
+table {
+    font-feature-settings: "kern"1, "liga"1, "calt"1, "pnum"1, "tnum"0, "onum"1, "lnum"0, "dlig"0;
+    /* 2. */
+}
+
+/* Headings
+========================================================================== */
+/**
+ * 1. Turn on discretionary ligatures for larger headings
+ */
+h1,
+h2,
+h3 {
+    font-feature-settings: "kern"1, "liga"1, "calt"1, "pnum"1, "tnum"0, "onum"1, "lnum"0, "dlig"1;
+    /* 1. */
+}
+
+/* Text-level semantics
+========================================================================== */
+/**
+ * 1. Change all letters to uppercase
+ * 2. Turn on small caps for upper and lowercase letters
+ */
+abbr {
+    text-transform: uppercase;
+    /* 1 */
+    font-feature-settings: "kern"1, "liga"1, "calt"1, "pnum"1, "tnum"0, "onum"1, "lnum"0, "smcp"1, "c2sc"1;
+    /* 2 */
+}
+
+/*
+ * TODO: Turn on diagonal fractions where appropriate
+ */
+time {
+    font-feature-settings: "kern"1, "liga"1, "calt"1, "pnum"1, "tnum"0, "onum"1, "lnum"0;
+}
+
+/*
+ * 1. Turn off kerning and ligatures,
+ *    Turn on lining, tabular numerals, slashed zero
+ */
+pre,
+kbd,
+samp,
+code {
+    font-feature-settings: "kern"0, "liga"0, "calt"1, "dlig"0, "pnum"0, "tnum"1, "onum"0, "lnum"1, "zero"1;
+    /* 1. */
+}
+
+/**
+ * 1. Turn on proper supercript numerals
+ */
+sup {
+    font-feature-settings: "kern"1, "liga"1, "calt"1, "pnum"1, "tnum"0, "onum"1, "lnum"0, "dlig"0, "sups"1;
+    /* 1. */
+}
+
+/**
+ * 1. Turn on proper subscript numerals
+ */
+sub {
+    font-feature-settings: "kern"1, "liga"1, "calt"1, "pnum"1, "tnum"0, "onum"1, "lnum"0, "dlig"0, "subs"1;
+    /* 1. */
+}
+
+/* Grouping content
+========================================================================== */
+/**
+ * TODO: Adds proper bullets
+ */
+/*
+ * TODO:
+ * 1. Adds counters for lists
+ * 2. Use proper numerals for lists
+ */
+/**
+ * Adds proper small caps
+ */
+/**
+ * TODO: scmp, sc2c, pnum, case sensitive forms for postal codes
+ */
+/* Forms
+========================================================================== */
+/**
+ * 1. Turns on lining, proportional numerals without clarified zeroes
+ * TODO: Additional input modes https://developer.mozilla.org/en/docs/Web/HTML/Element/Input#attr-inputmode
+ */
+input[type=color],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=number],
+input[type=range],
+input[type=tel],
+input[type=week] {
+    font-feature-settings: "kern"0, "liga"1, "calt"1, "pnum"1, "tnum"0, "onum"0, "lnum"1, "zero"0;
+    /* 1. */
+}
+
+/* Localisation
+========================================================================== */
+/* Tables
+========================================================================== */
+/**
+ * 1. Turns on tabular, lining numerals and slashed zero
+ */
+tbody,
+caption {
+    font-feature-settings: "kern"1, "liga"1, "calt"1, "pnum"0, "tnum"1, "onum"0, "lnum"1, "zero"1;
+    /* 1. */
+}
+
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--color-action);
+    border: 0;
+    border-radius: var(--border-radius);
+    color: var(--color-action-contrast);
+    cursor: pointer;
+    display: inline-block;
+    font-family: var(--font-family-base);
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 600;
+    line-height: 1;
+    padding: var(--spacing-sm) var(--spacing-sm);
+    text-align: center;
+    text-decoration: none;
+    transition: background-color var(--animation-duration) var(--animation-timing);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+button:hover,
+[type=button]:hover,
+[type=reset]:hover,
+[type=submit]:hover {
+    background-color: var(--color-action-light);
+}
+
+button:focus-visible,
+[type=button]:focus-visible,
+[type=reset]:focus-visible,
+[type=submit]:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+}
+
+button:disabled,
+[type=button]:disabled,
+[type=reset]:disabled,
+[type=submit]:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+fieldset {
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    padding: 0;
+}
+
+label,
+.toggle-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+input,
+select,
+textarea {
+    display: block;
+    font-family: var(--font-family);
+    font-size: 1rem;
+}
+
+select {
+    -webkit-appearance: auto !important;
+    -moz-appearance: auto !important;
+    appearance: auto !important;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+select,
+[type=color],
+[type=date],
+[type=datetime],
+[type=datetime-local],
+[type=email],
+[type=month],
+[type=number],
+[type=password],
+[type=search],
+[type=tel],
+[type=text],
+[type=time],
+[type=url],
+[type=week],
+[type=datalist],
+input:not([type]),
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    margin-bottom: var(--spacing-sm);
+    padding: calc(var(--spacing-base) / 3);
+    transition: border-color var(--animation-duration) var(--animation-timing);
+    width: 100%;
+}
+
+select:focus, select:focus-visible,
+[type=color]:focus,
+[type=color]:focus-visible,
+[type=date]:focus,
+[type=date]:focus-visible,
+[type=datetime]:focus,
+[type=datetime]:focus-visible,
+[type=datetime-local]:focus,
+[type=datetime-local]:focus-visible,
+[type=email]:focus,
+[type=email]:focus-visible,
+[type=month]:focus,
+[type=month]:focus-visible,
+[type=number]:focus,
+[type=number]:focus-visible,
+[type=password]:focus,
+[type=password]:focus-visible,
+[type=search]:focus,
+[type=search]:focus-visible,
+[type=tel]:focus,
+[type=tel]:focus-visible,
+[type=text]:focus,
+[type=text]:focus-visible,
+[type=time]:focus,
+[type=time]:focus-visible,
+[type=url]:focus,
+[type=url]:focus-visible,
+[type=week]:focus,
+[type=week]:focus-visible,
+[type=datalist]:focus,
+[type=datalist]:focus-visible,
+input:not([type]):focus,
+input:not([type]):focus-visible,
+textarea:focus,
+textarea:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+}
+
+select:disabled,
+[type=color]:disabled,
+[type=date]:disabled,
+[type=datetime]:disabled,
+[type=datetime-local]:disabled,
+[type=email]:disabled,
+[type=month]:disabled,
+[type=number]:disabled,
+[type=password]:disabled,
+[type=search]:disabled,
+[type=tel]:disabled,
+[type=text]:disabled,
+[type=time]:disabled,
+[type=url]:disabled,
+[type=week]:disabled,
+[type=datalist]:disabled,
+input:not([type]):disabled,
+textarea:disabled {
+    cursor: not-allowed;
+}
+
+select:disabled:hover,
+[type=color]:disabled:hover,
+[type=date]:disabled:hover,
+[type=datetime]:disabled:hover,
+[type=datetime-local]:disabled:hover,
+[type=email]:disabled:hover,
+[type=month]:disabled:hover,
+[type=number]:disabled:hover,
+[type=password]:disabled:hover,
+[type=search]:disabled:hover,
+[type=tel]:disabled:hover,
+[type=text]:disabled:hover,
+[type=time]:disabled:hover,
+[type=url]:disabled:hover,
+[type=week]:disabled:hover,
+[type=datalist]:disabled:hover,
+input:not([type]):disabled:hover,
+textarea:disabled:hover {
+    border: var(--border);
+}
+
+select::-moz-placeholder, [type=color]::-moz-placeholder, [type=date]::-moz-placeholder, [type=datetime]::-moz-placeholder, [type=datetime-local]::-moz-placeholder, [type=email]::-moz-placeholder, [type=month]::-moz-placeholder, [type=number]::-moz-placeholder, [type=password]::-moz-placeholder, [type=search]::-moz-placeholder, [type=tel]::-moz-placeholder, [type=text]::-moz-placeholder, [type=time]::-moz-placeholder, [type=url]::-moz-placeholder, [type=week]::-moz-placeholder, [type=datalist]::-moz-placeholder, input:not([type])::-moz-placeholder, textarea::-moz-placeholder {
+    color: var(--font-color-base);
+    opacity: 0.25;
+}
+
+select::placeholder,
+[type=color]::placeholder,
+[type=date]::placeholder,
+[type=datetime]::placeholder,
+[type=datetime-local]::placeholder,
+[type=email]::placeholder,
+[type=month]::placeholder,
+[type=number]::placeholder,
+[type=password]::placeholder,
+[type=search]::placeholder,
+[type=tel]::placeholder,
+[type=text]::placeholder,
+[type=time]::placeholder,
+[type=url]::placeholder,
+[type=week]::placeholder,
+[type=datalist]::placeholder,
+input:not([type])::placeholder,
+textarea::placeholder {
+    color: var(--font-color-base);
+    opacity: 0.25;
+}
+
+[type=search] {
+    -webkit-appearance: textfield;
+}
+
+textarea {
+    resize: vertical;
+}
+
+[type=checkbox],
+[type=radio] {
+    display: inline;
+    margin-right: var(--spacing-sm);
+}
+
+[type=file] {
+    margin-bottom: var(--spacing-sm);
+    width: 100%;
+}
+
+select {
+    margin-bottom: var(--spacing-sm);
+    width: 100%;
+}
+
+[type=checkbox]:focus, [type=checkbox]:focus-visible,
+[type=radio]:focus,
+[type=radio]:focus-visible,
+[type=file]:focus,
+[type=file]:focus-visible,
+select:focus,
+select:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+}
+
+[type=color] {
+    -webkit-appearance: none;
+    border: none;
+    border-radius: var(--border-radius);
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    overflow: hidden;
+}
+
+[type=color]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+[type=color]::-webkit-color-swatch {
+    border: none;
+}
+
+meter,
+progress,
+[type=range],
+[type=datalist] {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-base);
+}
+
+html {
+    background-color: var(--color-viewport-background);
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+}
+
+ul,
+ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.bullets {
+    list-style-type: disc;
+    margin: revert;
+    padding: revert;
+}
+
+ul.bullets ul {
+    list-style-type: circle;
+    margin: revert;
+    padding: revert;
+}
+
+ul.bullets ul ul {
+    list-style-type: square;
+}
+
+ol.bullets {
+    list-style-type: decimal;
+    margin-bottom: revert;
+    padding-left: revert;
+}
+
+ol.bullets ol {
+    list-style-type: decimal;
+    margin-bottom: revert;
+    padding-left: revert;
+}
+
+dl {
+    margin: 0;
+}
+
+dt {
+    font-weight: 600;
+    margin: 0;
+}
+
+dd {
+    margin: 0;
+}
+
+figure {
+    margin: 0;
+}
+
+img,
+picture {
+    margin: 0;
+    max-width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    margin: var(--spacing-base) 0;
+    table-layout: fixed;
+    text-align: left;
+    width: 100%;
+}
+
+thead {
+    line-height: var(--line-height--heading);
+    vertical-align: bottom;
+}
+
+tbody {
+    vertical-align: top;
+}
+
+tr {
+    border-bottom: var(--border);
+}
+
+th {
+    font-weight: 600;
+}
+
+th,
+td {
+    padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) 0;
+}
+
+html {
+    accent-color: var(--color-action);
+    color: var(--font-color-base);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-text);
+}
+
+body ::-moz-selection {
+    background-color: var(--color-action);
+    color: var(--color-action-contrast);
+}
+
+body ::selection {
+    background-color: var(--color-action);
+    color: var(--color-action-contrast);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-heading);
+    font-size: 1.25rem;
+    line-height: var(--line-height-heading);
+    margin: 0 0 var(--spacing-sm);
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.display {
+    font-size: var(--font-size-display);
+}
+
+.h1 {
+    font-size: var(--font-size-h1);
+}
+
+.h2 {
+    font-size: var(--font-size-h2);
+}
+
+.h3 {
+    font-size: var(--font-size-h3);
+}
+
+.h4 {
+    font-size: var(--font-size-h4);
+}
+
+.h5 {
+    font-size: var(--font-size-h5);
+}
+
+.h6 {
+    font-size: var(--font-size-h6);
+}
+
+.p {
+    margin: 0 0 var(--spacing-sm);
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+[href] {
+    color: var(--color-action);
+    -webkit-text-decoration-skip: ink;
+    text-decoration-skip-ink: auto;
+    transition: color var(--animation-duration) var(--animation-timing);
+}
+
+[href]:hover {
+    color: var(--color-action-light);
+}
+
+[href]:focus {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+}
+
+hr {
+    border-bottom: var(--border);
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: var(--spacing-base) 0;
+}
+
+pre {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.blockquote {
+    border-left: 0.3rem solid var(--border-color);
+    margin: var(--spacing-base) 0;
+    padding: var(--spacing-sm) var(--spacing-base);
+    font-style: italic;
+}
+
+.blockquote:before {
+    color: #ccc;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+
+.blockquote .cite,
+.blockquote footer {
+    display: block;
+    font-size: 85%;
+}
+
+.blockquote .cite:before,
+.blockquote footer:before {
+    content: "— ";
+}
+
+::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+    height: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-neutral-2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-highlight);
+}
+
+:root {
+    --toggle-width: 44px;
+    --toggle-height: 28px;
+    --toggle-switch-size: 12px;
+    --toggle-spacing: 8px;
+}
+
+.toggle {
+    position: relative;
+    height: var(--toggle-height);
+}
+
+.toggle>input {
+    height: 0;
+    width: 0;
+    visibility: visible;
+    margin: 0;
+    position: absolute;
+}
+
+.toggle>input+label {
+    cursor: pointer;
+    border: var(--border);
+    text-indent: -9999px;
+    width: var(--toggle-width);
+    height: var(--toggle-height);
+    background: var(--color-black);
+    display: block;
+    border-radius: var(--toggle-height);
+    position: relative;
+    margin: 0;
+}
+
+.toggle>input+label:after {
+    content: "";
+    position: absolute;
+    top: var(--toggle-spacing);
+    left: var(--toggle-spacing);
+    width: var(--toggle-switch-size);
+    height: var(--toggle-switch-size);
+    background-color: var(--color-action-contrast);
+    border-radius: var(--toggle-switch-size);
+    transition: 0.3s;
+}
+
+.toggle>input:checked+label {
+    background: var(--color-action);
+}
+
+.toggle>input:checked+label:after {
+    background-color: var(--color-white);
+    left: calc(100% - var(--toggle-spacing));
+    transform: translateX(-100%);
+}
+
+.toggle>input+label:active:after {
+    width: 16px;
+}
+
+.toggle>input:focus-visible {
+    outline: none;
+    border: none;
+}
+
+.toggle>input:focus-visible+label,
+.toggle>input:focus-visible+.label {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+    border: var(--border);
+    border-color: var(--color-action);
+}
+
+.toggle>input:focus-visible:checked+label,
+.toggle>input:focus-visible:checked+.label {
+    border: var(--border);
+    border-color: var(--color-white);
+}
+
+.sr-only,
+.visibility-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/*# sourceMappingURL=style.css.map */

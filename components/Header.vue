@@ -1,9 +1,9 @@
 <template>
   <header ref="header" class="site-header">
-    <h1 class="app-name">Styleguide Custom Properties Generator</h1>
+    <h1 class="app-name">Custom Properties Combobulator</h1>
     <div class="actions">
-      <button class="button">Upload Styleguide</button>
-      <button class="button">Download Styleguide</button>
+      <button @click="variableStore?.resetToDefaults()" class="button inverse">Reset to default</button>
+      <button class="button">Download CSS</button>
     </div>
   </header>
 </template>
@@ -11,6 +11,7 @@
 <script setup>
 const header = ref(null);
 const UIState = useUIStateStore();
+const variableStore = useVariableConfigStore()
 
 onMounted(() => {
   UIState.headerHeight = `${header.value.clientHeight}px`;
@@ -23,7 +24,7 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-base);
+  padding: var(--spacing-sm) var(--spacing-base);
 }
 
 .app-name {
@@ -33,6 +34,7 @@ onMounted(() => {
 
 .actions {
   display: flex;
+  align-items: center;
   gap: var(--spacing-sm);
 }
 </style>

@@ -1,0 +1,5 @@
+name: steez
+packages:
+  - path: stores
+language: javascript
+appmap_dir: tmp/appmap

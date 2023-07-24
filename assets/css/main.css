@@ -3,11 +3,11 @@
 :root {
     --light-percentage: 70%;
     /* COLORS */
-    --color-black: #000000;
+    /* --color-black: #000000;
     --color-white: #FFFFFF;
     --color-yellow: #ffca30;
     --color-red: #e02045;
-    --color-green: #4d967b;
+    --color-green: #4d967b; */
     --color-neutral-0: var(--color-white);
     --color-neutral-1: color-mix(in srgb, var(--color-black) 10%, var(--color-white));
     --color-neutral-2: color-mix(in srgb, var(--color-black) 20%, var(--color-white));
@@ -19,7 +19,7 @@
     --color-neutral-8: color-mix(in srgb, var(--color-black) 80%, var(--color-white));
     --color-neutral-9: color-mix(in srgb, var(--color-black) 90%, var(--color-white));
     --color-neutral-10: var(--color-black);
-    --color-primary: #5FC1F1;
+    /* --color-primary: #5FC1F1; */
     --color-secondary: #F15FF1;
     --color-action: var(--color-primary);
     --color-action-light: color-mix(in srgb, var(--color-action) var(--light-percentage), var(--color-white));
@@ -37,7 +37,7 @@
     --color-error-light: color-mix(in srgb, var(--color-error) var(--light-percentage), var(--color-white));
     --color-error-contrast: var(--color-action-contrast);
     --color-viewport-background: var(--color-white);
-    --color-text-primary: var(--color-neutral-9);
+    --color-text-primary: var(--color-neutral-8);
     --color-text-secondary: var(--color-neutral-6);
     --color-text-tertiary: var(--color-secondarary);
     --color-text-body: var(--color-text-primary);
@@ -129,6 +129,9 @@
     --elevation-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3);
     /* SCROLLBARS */
     --scrollbar-width: 5px;
+    /* BUTTONS */
+    --button-font-weight: var(--font-weight-normal);
+    --button-font-size: var(--font-size-body);
 }
 
 /*
@@ -159,7 +162,7 @@
 html {
     line-height: 1.5;
     /* 1 */
-    -text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
     /* 2 */
     -moz-tab-size: 4;
     /* 3 */
@@ -667,11 +670,13 @@ button,
     color: var(--color-action-contrast);
     cursor: pointer;
     display: inline-block;
-    font-family: var(--font-family-base);
-    font-size: 1rem;
+    font-family: var(--font-family);
+    font-size: var(--button-font-size);
     -webkit-font-smoothing: antialiased;
-    font-weight: 600;
+    font-weight: var(--button-font-weight);
     line-height: 1;
+    height: -moz-fit-content;
+    height: fit-content;
     padding: var(--spacing-sm) var(--spacing-sm);
     text-align: center;
     text-decoration: none;
@@ -704,6 +709,32 @@ button:disabled,
 [type=submit]:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+}
+
+button.small,
+[type=button].small,
+[type=reset].small,
+[type=submit].small {
+    font-size: var(--font-size-body-sm);
+    padding: calc(var(--spacing-sm) / 2) calc(var(--spacing-sm) / 2);
+}
+
+button.inverse,
+[type=button].inverse,
+[type=reset].inverse,
+[type=submit].inverse {
+    background-color: var(--color-action-contrast);
+    color: var(--color-action);
+    border: var(--border);
+    border-color: var(--color-action);
+}
+
+button.inverse:hover,
+[type=button].inverse:hover,
+[type=reset].inverse:hover,
+[type=submit].inverse:hover {
+    color: var(--color-action-light);
+    border-color: var(--color-action-light);
 }
 
 fieldset {
@@ -1048,7 +1079,7 @@ td {
 
 html {
     accent-color: var(--color-action);
-    color: var(--font-color-base);
+    color: var(--color-text-primary);
     font-family: var(--font-family);
     font-size: var(--font-size-base);
     line-height: var(--line-height-text);
@@ -1271,5 +1302,3 @@ pre {
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
-
-/*# sourceMappingURL=style.css.map */

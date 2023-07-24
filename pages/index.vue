@@ -1,8 +1,8 @@
 <template>
   <main @headerLoaded="setHeaderDimensions" class="main">
-    <SidebarsConfigSidebar class="sidebar" />
+    <ConfigSidebar class="sidebar" />
     <HtmlKitchenSink class="content" />
-    <SidebarsOutput class="output" />
+    <Output class="output" />
   </main>
 </template>
 

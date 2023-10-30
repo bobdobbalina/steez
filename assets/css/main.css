@@ -3,11 +3,11 @@
 :root {
     --light-percentage: 70%;
     /* COLORS */
-    /* --color-black: #000000;
+    --color-black: #000000;
     --color-white: #FFFFFF;
-    --color-yellow: #ffca30;
-    --color-red: #e02045;
-    --color-green: #4d967b; */
+    --color-yellow: #EBCB8B;
+    --color-red: #BF616A;
+    --color-green: #A3BE8C;
     --color-neutral-0: var(--color-white);
     --color-neutral-1: color-mix(in srgb, var(--color-black) 10%, var(--color-white));
     --color-neutral-2: color-mix(in srgb, var(--color-black) 20%, var(--color-white));
@@ -19,12 +19,19 @@
     --color-neutral-8: color-mix(in srgb, var(--color-black) 80%, var(--color-white));
     --color-neutral-9: color-mix(in srgb, var(--color-black) 90%, var(--color-white));
     --color-neutral-10: var(--color-black);
-    /* --color-primary: #5FC1F1; */
-    --color-secondary: #F15FF1;
+    --color-primary: #81A1C1;
+    --color-primary-light: color-mix(in srgb, var(--color-primary) var(--light-percentage), var(--color-white));
+    --color-primary-contrast: var(--color-white);
+    --color-secondary: #B48EAD;
+    --color-secondary-light: color-mix(in srgb, var(--color-secondary) var(--light-percentage), var(--color-white));
+    --color-secondary-contrast: var(--color-white);
+    --color-tertiary: #f1be5f;
+    --color-tertiary-light: color-mix(in srgb, var(--color-tertiary) var(--light-percentage), var(--color-white));
+    --color-tertiary-contrast: var(--color-white);
     --color-action: var(--color-primary);
     --color-action-light: color-mix(in srgb, var(--color-action) var(--light-percentage), var(--color-white));
     --color-action-contrast: var(--color-white);
-    --color-highlight: var(--color-action);
+    --color-highlight: var(--color-secondary);
     --color-highlight-light: color-mix(in srgb, var(--color-highlight) var(--light-percentage), var(--color-white));
     --color-highlight-contrast: var(--color-white);
     --color-success: var(--color-green);
@@ -658,6 +665,7 @@ caption {
 }
 
 button,
+a[role=button],
 [type=button],
 [type=reset],
 [type=submit] {
@@ -665,7 +673,8 @@ button,
     -moz-appearance: none;
     appearance: none;
     background-color: var(--color-action);
-    border: 0;
+    border: var(--border);
+    border-color: var(--color-action);
     border-radius: var(--border-radius);
     color: var(--color-action-contrast);
     cursor: pointer;
@@ -680,7 +689,7 @@ button,
     padding: var(--spacing-sm) var(--spacing-sm);
     text-align: center;
     text-decoration: none;
-    transition: background-color var(--animation-duration) var(--animation-timing);
+    transition: all var(--animation-duration) var(--animation-timing);
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
@@ -689,13 +698,17 @@ button,
 }
 
 button:hover,
+a[role=button]:hover,
 [type=button]:hover,
 [type=reset]:hover,
 [type=submit]:hover {
     background-color: var(--color-action-light);
+    border-color: var(--color-action-light);
+    color: var(--color-action-contrast);
 }
 
 button:focus-visible,
+a[role=button]:focus-visible,
 [type=button]:focus-visible,
 [type=reset]:focus-visible,
 [type=submit]:focus-visible {
@@ -704,6 +717,7 @@ button:focus-visible,
 }
 
 button:disabled,
+a[role=button]:disabled,
 [type=button]:disabled,
 [type=reset]:disabled,
 [type=submit]:disabled {
@@ -711,30 +725,331 @@ button:disabled,
     opacity: 0.5;
 }
 
-button.small,
-[type=button].small,
-[type=reset].small,
-[type=submit].small {
-    font-size: var(--font-size-body-sm);
-    padding: calc(var(--spacing-sm) / 2) calc(var(--spacing-sm) / 2);
+button.large, button.lg,
+a[role=button].large,
+a[role=button].lg,
+[type=button].large,
+[type=button].lg,
+[type=reset].large,
+[type=reset].lg,
+[type=submit].large,
+[type=submit].lg {
+    font-size: var(--font-size-body-lg);
+    padding: calc(var(--spacing-lg) / 2.5) calc(var(--spacing-lg) / 2);
 }
 
-button.inverse,
-[type=button].inverse,
-[type=reset].inverse,
-[type=submit].inverse {
+button.small, button.sm,
+a[role=button].small,
+a[role=button].sm,
+[type=button].small,
+[type=button].sm,
+[type=reset].small,
+[type=reset].sm,
+[type=submit].small,
+[type=submit].sm {
+    font-size: var(--font-size-body-sm);
+    padding: calc(var(--spacing-sm) / 1.5) calc(var(--spacing-sm) / 1.5);
+}
+
+button.outline,
+a[role=button].outline,
+[type=button].outline,
+[type=reset].outline,
+[type=submit].outline {
     background-color: var(--color-action-contrast);
     color: var(--color-action);
     border: var(--border);
     border-color: var(--color-action);
 }
 
-button.inverse:hover,
-[type=button].inverse:hover,
-[type=reset].inverse:hover,
-[type=submit].inverse:hover {
+button.outline:hover,
+a[role=button].outline:hover,
+[type=button].outline:hover,
+[type=reset].outline:hover,
+[type=submit].outline:hover {
     color: var(--color-action-light);
     border-color: var(--color-action-light);
+}
+
+button.secondary,
+a[role=button].secondary,
+[type=button].secondary,
+[type=reset].secondary,
+[type=submit].secondary {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-secondary-contrast);
+}
+
+button.secondary:hover,
+a[role=button].secondary:hover,
+[type=button].secondary:hover,
+[type=reset].secondary:hover,
+[type=submit].secondary:hover {
+    background-color: var(--color-secondary-light);
+    border-color: var(--color-secondary-light);
+    color: var(--color-secondary-contrast);
+}
+
+button.secondary.outline,
+a[role=button].secondary.outline,
+[type=button].secondary.outline,
+[type=reset].secondary.outline,
+[type=submit].secondary.outline {
+    background-color: var(--color-secondary-contrast);
+    color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+button.secondary.outline:hover,
+a[role=button].secondary.outline:hover,
+[type=button].secondary.outline:hover,
+[type=reset].secondary.outline:hover,
+[type=submit].secondary.outline:hover {
+    color: var(--color-secondary-light);
+    border-color: var(--color-secondary-light);
+}
+
+button.success,
+a[role=button].success,
+[type=button].success,
+[type=reset].success,
+[type=submit].success {
+    background-color: var(--color-success);
+    border-color: var(--color-success);
+    color: var(--color-success-contrast);
+}
+
+button.success:hover,
+a[role=button].success:hover,
+[type=button].success:hover,
+[type=reset].success:hover,
+[type=submit].success:hover {
+    background-color: var(--color-success-light);
+    border-color: var(--color-success-light);
+    color: var(--color-success-contrast);
+}
+
+button.success.outline,
+a[role=button].success.outline,
+[type=button].success.outline,
+[type=reset].success.outline,
+[type=submit].success.outline {
+    background-color: var(--color-success-contrast);
+    color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+button.success.outline:hover,
+a[role=button].success.outline:hover,
+[type=button].success.outline:hover,
+[type=reset].success.outline:hover,
+[type=submit].success.outline:hover {
+    color: var(--color-success-light);
+    border-color: var(--color-success-light);
+}
+
+button.error,
+a[role=button].error,
+[type=button].error,
+[type=reset].error,
+[type=submit].error {
+    background-color: var(--color-error);
+    border-color: var(--color-error);
+    color: var(--color-error-contrast);
+}
+
+button.error:hover,
+a[role=button].error:hover,
+[type=button].error:hover,
+[type=reset].error:hover,
+[type=submit].error:hover {
+    background-color: var(--color-error-light);
+    border-color: var(--color-error-light);
+    color: var(--color-error-contrast);
+}
+
+button.error.outline,
+a[role=button].error.outline,
+[type=button].error.outline,
+[type=reset].error.outline,
+[type=submit].error.outline {
+    background-color: var(--color-error-contrast);
+    color: var(--color-error);
+    border-color: var(--color-error);
+}
+
+button.error.outline:hover,
+a[role=button].error.outline:hover,
+[type=button].error.outline:hover,
+[type=reset].error.outline:hover,
+[type=submit].error.outline:hover {
+    color: var(--color-error-light);
+    border-color: var(--color-error-light);
+}
+
+button.warning,
+a[role=button].warning,
+[type=button].warning,
+[type=reset].warning,
+[type=submit].warning {
+    background-color: var(--color-warning);
+    border-color: var(--color-warning);
+    color: var(--color-warning-contrast);
+}
+
+button.warning:hover,
+a[role=button].warning:hover,
+[type=button].warning:hover,
+[type=reset].warning:hover,
+[type=submit].warning:hover {
+    background-color: var(--color-warning-light);
+    border-color: var(--color-warning-light);
+    color: var(--color-warning-contrast);
+}
+
+button.warning.outline,
+a[role=button].warning.outline,
+[type=button].warning.outline,
+[type=reset].warning.outline,
+[type=submit].warning.outline {
+    background-color: var(--color-warning-contrast);
+    color: var(--color-warning);
+    border-color: var(--color-warning);
+}
+
+button.warning.outline:hover,
+a[role=button].warning.outline:hover,
+[type=button].warning.outline:hover,
+[type=reset].warning.outline:hover,
+[type=submit].warning.outline:hover {
+    color: var(--color-warning-light);
+    border-color: var(--color-warning-light);
+}
+
+button.info,
+a[role=button].info,
+[type=button].info,
+[type=reset].info,
+[type=submit].info {
+    background-color: var(--color-highlight);
+    border-color: var(--color-highlight);
+    color: var(--color-highlight-contrast);
+}
+
+button.info:hover,
+a[role=button].info:hover,
+[type=button].info:hover,
+[type=reset].info:hover,
+[type=submit].info:hover {
+    background-color: var(--color-highlight-light);
+    border-color: var(--color-highlight-light);
+    color: var(--color-highlight-contrast);
+}
+
+button.light,
+a[role=button].light,
+[type=button].light,
+[type=reset].light,
+[type=submit].light {
+    background-color: var(--color-neutral-1);
+    border-color: var(--color-neutral-1);
+    color: var(--color-text-primary);
+}
+
+button.light:hover,
+a[role=button].light:hover,
+[type=button].light:hover,
+[type=reset].light:hover,
+[type=submit].light:hover {
+    background-color: var(--color-neutral-2);
+    border-color: var(--color-neutral-2);
+    color: var(--color-text-primary);
+}
+
+button.light.outline,
+a[role=button].light.outline,
+[type=button].light.outline,
+[type=reset].light.outline,
+[type=submit].light.outline {
+    background-color: transparent;
+    color: var(--color-neutral-4);
+    border-color: var(--color-neutral-4);
+}
+
+button.light.outline:hover,
+a[role=button].light.outline:hover,
+[type=button].light.outline:hover,
+[type=reset].light.outline:hover,
+[type=submit].light.outline:hover {
+    color: var(--color-neutral-2);
+    border-color: var(--color-neutral-2);
+}
+
+button.dark,
+a[role=button].dark,
+[type=button].dark,
+[type=reset].dark,
+[type=submit].dark {
+    background-color: var(--color-neutral-10);
+    border-color: var(--color-neutral-10);
+    color: var(--color-neutral-1);
+}
+
+button.dark:hover,
+a[role=button].dark:hover,
+[type=button].dark:hover,
+[type=reset].dark:hover,
+[type=submit].dark:hover {
+    background-color: var(--color-neutral-8);
+    border-color: var(--color-neutral-8);
+    color: var(--color-neutral-1);
+}
+
+button.dark.outline,
+a[role=button].dark.outline,
+[type=button].dark.outline,
+[type=reset].dark.outline,
+[type=submit].dark.outline {
+    background-color: transparent;
+    color: var(--color-neutral-10);
+    border-color: var(--color-neutral-10);
+}
+
+button.dark.outline:hover,
+a[role=button].dark.outline:hover,
+[type=button].dark.outline:hover,
+[type=reset].dark.outline:hover,
+[type=submit].dark.outline:hover {
+    color: var(--color-neutral-6);
+    border-color: var(--color-neutral-6);
+}
+
+button.link, button.text,
+a[role=button].link,
+a[role=button].text,
+[type=button].link,
+[type=button].text,
+[type=reset].link,
+[type=reset].text,
+[type=submit].link,
+[type=submit].text {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--color-action);
+}
+
+button.link:hover, button.text:hover,
+a[role=button].link:hover,
+a[role=button].text:hover,
+[type=button].link:hover,
+[type=button].text:hover,
+[type=reset].link:hover,
+[type=reset].text:hover,
+[type=submit].link:hover,
+[type=submit].text:hover {
+    color: var(--color-action-light);
+    border-color: transparent;
 }
 
 fieldset {
@@ -986,6 +1301,7 @@ html {
 
 body {
     min-height: 100vh;
+    min-height: 100dvh;
     text-rendering: optimizeSpeed;
 }
 
@@ -1210,7 +1526,7 @@ pre {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--color-highlight);
+    background: var(--color-action);
 }
 
 :root {
@@ -1302,3 +1618,5 @@ pre {
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
+
+/*# sourceMappingURL=style.css.map */

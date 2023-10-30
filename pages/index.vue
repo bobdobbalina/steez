@@ -1,8 +1,10 @@
 <template>
   <main @headerLoaded="setHeaderDimensions" class="main">
     <ConfigSidebar class="sidebar" />
-    <HtmlKitchenSink class="content" />
-    <Output class="output" />
+    <div class="content">
+      <HtmlKitchenSink />
+    </div>
+    <!-- <Output class="output" /> -->
   </main>
 </template>
 
@@ -12,24 +14,24 @@ const UIState = useUIStateStore();
 
 <style lang="scss" scoped>
 .main {
+  --header-height: v-bind('UIState.headerHeight');
+  --footer-height: v-bind('UIState.footerHeight');
   --sidebar-width: 300px;
 
   display: flex;
-  justify-content: center;
 }
 
 .content {
-  --header-height: v-bind('UIState.headerHeight');
-  --footer-height: v-bind('UIState.footerHeight');
-
   flex-grow: 1;
-  max-width: calc(100% - var(--sidebar-width) * 2);
-  max-height: calc(100vh - var(--header-height) - var(--footer-height));
+  padding: var(--spacing-base);
+  height: calc(100vh - var(--header-height) - var(--footer-height));
   overflow: auto;
 }
 
 .sidebar,
 .output {
-  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  max-height: calc(100vh - var(--header-height) - var(--footer-height));
+  overflow: auto;
 }
 </style>

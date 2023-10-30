@@ -21,7 +21,7 @@ const store = useVariableConfigStore();
 
 <style lang="scss" scoped>
 .sidebar {
-  background-color: var(--color-neutral-2);
+  background-color: var(--color-neutral-1);
 }
 
 .color-item {

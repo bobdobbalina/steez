@@ -4,9 +4,9 @@ const defaults = {
   colors: [
     { name: "--color-black", value: "#000000" },
     { name: "--color-white", value: "#FFFFFF" },
-    { name: "--color-yellow", value: "#ffca30" },
-    { name: "--color-red", value: "#e02045" },
-    { name: "--color-green", value: "#4d967b" },
+    { name: "--color-yellow", value: "#EBCB8B" },
+    { name: "--color-red", value: "#BF616A" },
+    { name: "--color-green", value: "#A3BE8C" },
 
     { name: "--color-neutral-0", value: "var(--color-white)" },
     { name: "--color-neutral-1", value: "color-mix(in srgb, var(--color-black) 10%, var(--color-white))" },
@@ -20,14 +20,14 @@ const defaults = {
     { name: "--color-neutral-9", value: "color-mix(in srgb, var(--color-black) 90%, var(--color-white))" },
     { name: "--color-neutral-10", value: "var(--color-black)" },
 
-    { name: "--color-primary", value: "#5FC1F1" },
-    { name: "--color-secondary", value: "#F15FF1" },
+    { name: "--color-primary", value: "#81A1C1" },
+    { name: "--color-secondary", value: "#B48EAD" },
 
     { name: "--color-action", value: "var(--color-primary)" },
     { name: "--color-action-light", value: "color-mix(in srgb, var(--color-action) var(--light-percentage), var(--color-white))" },
     { name: "--color-action-contrast", value: "var(--color-white)" },
 
-    { name: "--color-highlight", value: "var(--color-action)" },
+    { name: "--color-highlight", value: "var(--color-secondary)" },
     { name: "--color-highlight-light", value: "color-mix(in srgb, var(--color-highlight) var(--light-percentage), var(--color-white))" },
     { name: "--color-highlight-contrast", value: "var(--color-white)" },
 

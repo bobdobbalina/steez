@@ -2,7 +2,7 @@
   <div id="app" class="app">
     <Header />
     <NuxtPage class="page-content" />
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 
@@ -25,7 +25,7 @@ variables.buttonsOptions = computed(() => varStore.variables.buttons.options);
 
 async function setCustomProperties() {
   for (const options in variables) {
-    if (Object.hasOwnProperty.call(variables, options)) {
+    if (Object.hasOwn(variables, options)) {
       variables[options].value.forEach(option => {
         // console.log('setting option: ', option.name, option.value);
         document.documentElement.style.setProperty(option.name, option.value);

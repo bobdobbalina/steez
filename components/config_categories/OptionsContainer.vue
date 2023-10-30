@@ -27,6 +27,7 @@ const props = defineProps({
 summary {
   padding: var(--spacing-sm);
   border: var(--border);
+  background-color: var(--color-neutral-2);
 
   .nested & {
     padding: var(--spacing-sm) var(--spacing-base);

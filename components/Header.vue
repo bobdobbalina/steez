@@ -1,6 +1,6 @@
 <template>
   <header ref="header" class="site-header">
-    <h1 class="app-name">Custom Properties Combobulator</h1>
+    <h1 class="app-name">STEEZ: <small class="small">Your Custom Properties Combobulator</small></h1>
     <div class="actions">
       <button @click="variableStore?.resetToDefaults()" class="button inverse">Reset to default</button>
       <button class="button">Download CSS</button>

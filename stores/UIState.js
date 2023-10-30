@@ -2,8 +2,8 @@ import { defineStore } from 'pinia';
 
 export const useUIStateStore = defineStore('UIState', {
   state: () => ({
-    headerHeight: 0,
-    footerHeight: 0
+    headerHeight: '0px',
+    footerHeight: '0px'
   }),
 
   actions: {
